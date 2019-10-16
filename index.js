@@ -1,3 +1,4 @@
+const resolvers = require('./resolvers');
 const { ApolloServer } = require('apollo-server');
 
 const server = new ApolloServer({
@@ -5,6 +6,7 @@ const server = new ApolloServer({
         Add typeDefs
         Add resolvers
     */
+   resolvers
 });
 
 server.listen()
