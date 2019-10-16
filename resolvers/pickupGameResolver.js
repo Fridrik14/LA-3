@@ -68,7 +68,7 @@ const pickupGameResolver = {
             }
             playersInPickupGame = parent.registeredPlayers;
             //Check if maximum capacity has been reached
-            if (playersInPickupGame.length == 10) {
+            if (playersInPickupGame.length == parent.capacity) {
                 //TODO return viðeigandi error
                 return null;
             }
