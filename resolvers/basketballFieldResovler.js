@@ -1,6 +1,3 @@
-//TODO sækja basketballFields úr MongoDB og setja í basketballFields
-//const basketballFields = []
-
 const basketballFieldResolvers = {
     Query: {
         allBasketBallFields: () => basketballFields,

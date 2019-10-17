@@ -1,6 +1,3 @@
-//TODO sækja Players í mongoDB og setja í players breytu
-players = [];
-
 const playerResolver = {
     Query: {
         allPlayers: () => players,

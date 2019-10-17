@@ -1,8 +1,4 @@
 var moment = require('moment')
-//TODO sækja PickupGames í MongoDB og setja í pickupGames
-//PickupGames = []
-//TODO sækja líka BasketballFields
-//BasketballFields = []
 
 const pickupGameResolver = {
     Query: {
