@@ -1,8 +1,8 @@
 var moment = require('moment')
 //TODO sækja PickupGames í MongoDB og setja í pickupGames
-PickupGames = []
+//PickupGames = []
 //TODO sækja líka BasketballFields
-BasketballFields = []
+//BasketballFields = []
 
 const pickupGameResolver = {
     Query: {
@@ -17,16 +17,19 @@ const pickupGameResolver = {
             //Check if BasketballField is closed
             if(args.status === 'CLOSED'){
                 //TODO return viðeigandi error
+                throw new errorMessages.BasketballFieldClosedError;
                 return null;
             }
             //Check if start date is before end date
             if(args.start > args.end){
                 //TODO return viðeigandi error
+                throw new errorMessages.UserInputError;
                 return null;
             }
             //Check if start or end date has already passed
             if(args.start > moment.format('llll') || args.end < moment.format('llll')){
                 //TODO return viðeigandi error
+                throw new errorMessages.PickupGameAlreadyPassedError;
                 return null;
             }
             //Get basketballField
@@ -39,6 +42,7 @@ const pickupGameResolver = {
                     //TODO Check if there are overlapping pickUpGames on Field
                     // WIP þurfum að tékka hvort tíminn á milli item.start og item.end falli inn á milli args.start og args.end
                     if (item.start === args.start){ 
+                        throw new errorMessages.PickupGameOverlapError;
                         return null;
                         //TODO return viðeigandi error
                     }

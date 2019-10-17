@@ -3,11 +3,11 @@ const { gql } = require("apollo-server");
 const types = require('./types');
 const enums = require('./enums');
 const queries = require('./queries');
-const mutations = require('./mutations');
+// const mutations = require('./mutations'); ${mutations}
 
 module.exports = gql`
     ${types}
     ${enums}
     ${queries}
-    ${mutations}
+    
 `;
