@@ -4,13 +4,13 @@
     then this is the only thing left
     https://basketball-fields.herokuapp.com/api/basketball-fields
 */
+/*
+var Client = require('node-rest-client').Client;
+var remoteURL = "";
 
-// var Client = require('node-rest-client').Client;
-// var remoteURL = "";
+var client = new Client();
 
-// var client = new Client();
-
-// const v = client.get(remoteURL, function (data, response) {return data;});
+const v = client.get(remoteURL, function (data, response) {return data;});
 
 
 var https = require('https');
@@ -26,7 +26,7 @@ var request = https.request(options, function (res) {
     });
     res.on('end', function () {
         console.log(data);
-
+        
     });
 });
 request.on('error', function (e) {
@@ -35,8 +35,21 @@ request.on('error', function (e) {
 request.end();
 
 
+*/
 
+
+
+function data(variable){
+    const fetch = require("node-fetch");
+    const fetchPromise = fetch("https://basketball-fields.herokuapp.com/api/basketball-fields");
+    fetchPromise.then(response => { return response.json(); }).then(courts => { return courts; });
+}
+
+//console.log(data);
 module.exports = {
-    
+    data
 };
+
+
+
     
