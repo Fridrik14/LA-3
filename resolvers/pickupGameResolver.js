@@ -51,19 +51,26 @@ module.exports = {
                 //Create new PickupGame since no rules were broken
                 var newPickUpGame = {
                     id: args.id,
+                    ...args.input,
+                    /*
                     start: args.start,
                     end: args.end,
                     location: args.location,
                     //Initialize registeredPlayers with host
                     registeredPlayers: [args.host],
                     host: args.host
+                    */
                 }
                 PickUpGames.push(newPickUpGame);
                 return newPickUpGame;
             }
         },
         removePickupGame: (parent, args) => {
-
+            const pickupGame = PickUpGames.find(c=>c.id === args.id);
+            const index = PickUpGames.indexOf(pickupGame);
+            if(index === -1){return false;}
+            PickUpGames.splice(index,1);
+            return true;
         },
 
         // PLAYER-PICKUP GAME
@@ -88,8 +95,11 @@ module.exports = {
             }
             var playerForPickupGame = {
                 id: args.id,
+                ...args.input
+                /*
                 name: args.name,
                 playedGames: args.playedGames
+                */
             }
             //TODO setja nýjan player í PickupGame í stafrófsröð
             parent.registeredPlayers.push(playerForPickupGame);
@@ -100,7 +110,13 @@ module.exports = {
             //Ekki hægt ef PickupGame er búinn
             //Ef Player er host, setja fyrsta Player í lista sem host
             //Ef Player er ekki skráður í leikinn, gera ekkert
-
+            const pickupGame = PickUpGames.find(c=>c.id === args.puGid);
+            if(pickupGame.end < moment.format('llll')){return false;}
+            const player = pickupGame.registeredPlayers.find(c=> c.id === args.pid);
+            const index = pickupGame.registeredPlayers.indexOf(player);
+            if(index === -1){return false;}
+            pickupGame.registeredPlayers.splice(index,1);
+            return true;
         }
     }
 };
