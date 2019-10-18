@@ -42,7 +42,7 @@ module.exports = {
                 for (item in pickUpGamesOnField) {
                     //TODO Check if there are overlapping pickUpGames on Field
                     // WIP þurfum að tékka hvort tíminn á milli item.start og item.end falli inn á milli args.start og args.end
-                    if (item.start === args.start){ 
+                    if ((item.start < args.start & item.end > args.end) || (item.start >= args.start & item.end <= args.end) || (item.start <= args.end & item.end > args.end)){ 
                         throw new context.errorMessages.PickupGameOverlapError;
                         return null;
                         //TODO return viðeigandi error
@@ -78,18 +78,21 @@ module.exports = {
             //Check if time of pickupGame has already passed
             if (parent.end < moment.format('llll')) {
                 //TODO return viðeigandi error
+                throw new context.errorMessages.PickupGameAlreadyPassedError;
                 return null;
             }
             playersInPickupGame = parent.registeredPlayers;
             //Check if maximum capacity has been reached
             if (playersInPickupGame.length == parent.capacity) {
                 //TODO return viðeigandi error
+                throw new context.errorMessages.PickupGameExceedMaximumError;
                 return null;
             }
             for (item in playersInPickupGame) {
                 //Check if Player is already signed up for game
                 if (item.id === args.id) {
                     //TODO return viðeigandi error
+                    throw new context.errorMessages.UserInputError;
                     return null;
                 }
             }
