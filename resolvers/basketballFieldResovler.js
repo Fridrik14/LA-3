@@ -1,10 +1,8 @@
-const basketballFieldResolvers = {
+module.exports = {
     Query: {
         allBasketBallFields: () => BasketBallFields,
-        basketballField: (args) => {
+        BasketBallField: (args) => {
             return BasketBallFields.find(BasketBallFields => BasketBallFields.id === args.id);
         }
-    },
-}
-
-module.exports = {basketballFieldResolvers};
+    }
+};

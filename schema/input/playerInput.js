@@ -1,5 +1,5 @@
 module.exports =`
-    input playerInput {
+    input PlayerInput {
         name: String!
     }
 `;

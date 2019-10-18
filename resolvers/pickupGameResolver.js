@@ -1,13 +1,17 @@
 var moment = require('moment')
 
 const pickupGameResolver = {
+    
+}
+
+module.exports = {
     Query: {
-        allPickupGames: () => PickUpGames,
-        pickupGame: (args) => {
+        allPickUpGames: () => PickUpGames,
+        PickUpGame: (args) => {
             return PickUpGames.find(PickUpGames => PickUpGames.id === args.id);
         }
     },
-    Mutations: {
+    Mutation: {
         // PICKUP GAME
         createPickupGame: (args) => {
             //TODO tékka hvort tímalengd pickUpGame sé amk 5min og í mestalagi 2 tímar
@@ -99,6 +103,4 @@ const pickupGameResolver = {
 
         }
     }
-}
-
-module.exports = {pickupGameResolver};
+};

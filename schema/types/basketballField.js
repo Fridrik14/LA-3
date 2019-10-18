@@ -1,5 +1,5 @@
 module.exports = `
-    type BasketballField {
+    type BasketBallField {
         id: ID!
         name: String!
         capacity: Int!

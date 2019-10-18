@@ -8,9 +8,12 @@ const Schema = mongoose.Schema;
    is not the same
 */
 
+// https://blog.solutotlv.com/graphql-to-mongodb-or-how-i-learned-to-stop-worrying-and-love-generated-query-apis/
+// https://www.compose.com/articles/using-graphql-with-mongodb/
+
 const connection = mongoose.createConnection('mongodb+srv://Olafur:LabAssignment2@cluster0-paqgp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true,useUnifiedTopology: true });
 
 module.exports = {
-    player: connection.model('Player',{}),
-    pickupGame: connection.model('PickUpGame',{})
+    Player: connection.model('Player',{}),
+    PickUpGame: connection.model('PickUpGame',{})
 };

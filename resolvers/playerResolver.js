@@ -1,11 +1,14 @@
 const playerResolver = {
+      
+}
+module.exports = {
     Query: {
         allPlayers: () => Players,
         Player: (args) => {
             return Players.find(Players => Players.id === args.id)
         }
     },
-    Mutations: {
+    Mutation: {
         createPlayer: (parent, args) => {
             var newPlayer = {
                 id: args.id,
@@ -22,6 +25,5 @@ const playerResolver = {
             //Finna á ID, merkja sem deleted
             //return True ef virkaði, annars err
         }
-    }   
-}
-module.exports = {playerResolver};
+    } 
+};
