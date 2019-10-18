@@ -39,10 +39,11 @@ request.end();
 
 
 
-function data(variable){
+function data(){
     const fetch = require("node-fetch");
     const fetchPromise = fetch("https://basketball-fields.herokuapp.com/api/basketball-fields");
-    fetchPromise.then(response => { return response.json(); }).then(courts => { return courts; });
+    const test = fetchPromise.then(response => { return response.json(); }).then(courts => { return courts; });
+    return test;
 }
 
 //console.log(data);

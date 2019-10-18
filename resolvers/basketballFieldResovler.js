@@ -1,8 +1,8 @@
 module.exports = {
     Query: {
-        allBasketBallFields: () => BasketBallFields,
-        BasketBallField: (args) => {
-            return BasketBallFields.find(BasketBallFields => BasketBallFields.id === args.id);
+        allBasketBallFields: (context) => context.BasketBallFields,
+        BasketBallField: (args,context) => {
+            return context.BasketBallFields.find(BasketBallFields => BasketBallFields.id === args.id);
         }
     }
 };
