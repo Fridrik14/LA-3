@@ -8,6 +8,9 @@ var Client = require('node-rest-client').Client;
 var remoteURL = "https://basketball-fields.herokuapp.com/api/basketball-fields";
 
 var client = new Client();
-client.get(remoteURL, function (data, response) {console.log(data);});
-    
+
+client.get(remoteURL, function (data, response) {return data;});
+module.exports = {
+    client
+};
     
