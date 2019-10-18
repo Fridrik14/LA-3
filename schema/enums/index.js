@@ -1,4 +1,4 @@
-const basketballFieldStatus = require("./basketballFieldStatus");
+const BasketBallFieldStatus = require("./BasketBallFieldStatus");
 module.exports = `
-    ${basketballFieldStatus}
+    ${BasketBallFieldStatus}
 `;

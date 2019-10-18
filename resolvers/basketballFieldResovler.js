@@ -1,8 +1,8 @@
 const basketballFieldResolvers = {
     Query: {
-        allBasketBallFields: () => basketballFields,
+        allBasketBallFields: () => BasketBallFields,
         basketballField: (args) => {
-            return basketballFields.find(basketballFields => basketballFields.id === args.id);
+            return BasketBallFields.find(BasketBallFields => BasketBallFields.id === args.id);
         }
     },
 }

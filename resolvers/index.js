@@ -4,7 +4,7 @@ const pickupGameResolver = require("./pickupGameResolver");
 
 
 module.exports = {
-    basketballFieldResolver,
-    playerResolver,
-    pickupGameResolver
+    ...basketballFieldResolver,
+    ...playerResolver,
+    ...pickupGameResolver
 };

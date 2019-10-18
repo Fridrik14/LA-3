@@ -1,9 +1,9 @@
-const pickUpGameInput = require("./pickUpGameInput");
-const playerInput = require("./playerInput");
-const signUpPlayerInput = require("./signUpPlayerInput");
+const PickUpGameInput = require("./PickUpGameInput");
+const PlayerInput = require("./PlayerInput");
+const SignUpPlayerInput = require("./SignUpPlayerInput");
 
 module.exports = `
-    ${pickUpGameInput}
-    ${playerInput}
-    ${signUpPlayerInput}
+    ${PickUpGameInput}
+    ${PlayerInput}
+    ${SignUpPlayerInput}
 `;

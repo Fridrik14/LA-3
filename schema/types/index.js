@@ -1,9 +1,9 @@
-const player = require("./player");
-const pickUpGame = require("./pickUpGame");
-const basketballField = require("./basketballField");
+const Player = require("./Player");
+const PickUpGame = require("./PickUpGame");
+const BasketBallField = require("./BasketBallField");
 
 module.exports =`
-    ${player}
-    ${pickUpGame}
-    ${basketballField}
+    ${Player}
+    ${PickUpGame}
+    ${BasketBallField}
 `;

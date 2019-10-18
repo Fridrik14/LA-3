@@ -3,7 +3,7 @@ module.exports = `
         id: ID!
         start: Moment!
         end: Moment!
-        location: BasketballField!
+        location: BasketBallField!
         registeredPlayers: [Player!]!
         host: Player!
     }

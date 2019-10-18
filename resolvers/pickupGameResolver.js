@@ -2,12 +2,13 @@ var moment = require('moment')
 
 const pickupGameResolver = {
     Query: {
-        allPickupGames: () => PickupGames,
+        allPickupGames: () => PickUpGames,
         pickupGame: (args) => {
-            return PickupGames.find(PickupGames => PickupGames.id === args.id);
+            return PickUpGames.find(PickUpGames => PickUpGames.id === args.id);
         }
     },
     Mutations: {
+        // PICKUP GAME
         createPickupGame: (args) => {
             //TODO tékka hvort tímalengd pickUpGame sé amk 5min og í mestalagi 2 tímar
             //Check if BasketballField is closed
@@ -29,11 +30,11 @@ const pickupGameResolver = {
                 return null;
             }
             //Get basketballField
-            basketballField = BasketballFields.find(BasketballFields => BasketballFields.name === args.location);
+            BasketBallField = BasketBallFields.find(BasketBallFields => BasketBallFields.name === args.location);
             //Check if basketballField exists
-            if(!basketballField){
+            if(!BasketBallField){
                 //Get All pickupGames on field
-                pickUpGamesOnField = basketballField.pickUpGames;
+                pickUpGamesOnField = BasketBallField.PickUpGames;
                 for (item in pickUpGamesOnField) {
                     //TODO Check if there are overlapping pickUpGames on Field
                     // WIP þurfum að tékka hvort tíminn á milli item.start og item.end falli inn á milli args.start og args.end
@@ -53,13 +54,15 @@ const pickupGameResolver = {
                     registeredPlayers: [args.host],
                     host: args.host
                 }
-                PickupGames.push(newPickUpGame);
+                PickUpGames.push(newPickUpGame);
                 return newPickUpGame;
             }
         },
         removePickupGame: (parent, args) => {
 
         },
+
+        // PLAYER-PICKUP GAME
         addPlayerToPickupGame: (parent, args) => {
             //Check if time of pickupGame has already passed
             if (parent.end < moment.format('llll')) {

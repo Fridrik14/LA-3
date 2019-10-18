@@ -1,7 +1,8 @@
 const resolvers = require('./resolvers/index');
-const db = require("./data/db");
+//const db = require("./data/db");
 const typeDefs = require("./schema");
 const errorMessage = require("./errors");
+const services = require("./services/basketballFieldService");
 const { ApolloServer } = require('apollo-server');
 
 const server = new ApolloServer({
@@ -12,16 +13,18 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     
-    // database connections should go here
-    // does not work atm
-    // this accessible to all resolvers
+    /*
+        Get data here and the
+        resolvers can access it from here
+    */
+   
     context: {
         errorMessages: errorMessage,
-        basketballFields: ()=>{
+        BasketBallFields: ()=>{
             return fetch(" https://basketball-fields.herokuapp.com/api/basketball-fields");
         },
-        players: ()=>{return db.player},
-        pickupGames: ()=>{return db.pickupGame}
+        //Players: ()=>{return db.Player},
+        //PickUpGames: ()=>{return db.PickUpGame}
     },
    
    

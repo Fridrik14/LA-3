@@ -1,5 +1,5 @@
 module.exports = `
-    enum basketballFieldStatus{
+    enum BasketBallFieldStatus{
         OPEN
         CLOSED
     }

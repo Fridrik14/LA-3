@@ -1,8 +1,8 @@
 const playerResolver = {
     Query: {
-        allPlayers: () => players,
+        allPlayers: () => Players,
         Player: (args) => {
-            return players.find(players => players.id === args.id)
+            return Players.find(Players => Players.id === args.id)
         }
     },
     Mutations: {
@@ -12,7 +12,7 @@ const playerResolver = {
                 name: args.name,
                 playedGames: args.playedGames
             }
-            players.push(newPlayer);
+            Players.push(newPlayer);
             return newPlayer;
         },
         updatePlayer: (parent, args) => {
